@@ -7,5 +7,6 @@ matplotlib
 seaborn
 openpyxl
 joblib
+plotly
 folium
 streamlit-folium
