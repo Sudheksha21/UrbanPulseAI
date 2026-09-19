@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from cause_analysis import analyze_causes
 import folium
 from streamlit_folium import st_folium
-
+from folium.plugins import Geocoder
 # ============================================================
 # PAGE CONFIG
 # ============================================================
@@ -574,21 +574,19 @@ if predict_button:
 st.subheader("🗺️ Urban Traffic Location Map")
 
 st.write(
-    "Select a location on the map to view the area where "
-    "traffic analysis can be considered."
+    "Search for a city or location to view it on the map."
 )
 
-# Default map location
 traffic_map = folium.Map(
     location=[20.5937, 78.9629],
     zoom_start=5
 )
 
-# Marker for the selected traffic analysis area
-folium.Marker(
-    [20.5937, 78.9629],
-    popup="UrbanPulseAI Traffic Analysis",
-    tooltip="Traffic Analysis Location"
+# Add location search box
+Geocoder(
+    collapsed=False,
+    position="topright",
+    add_marker=True
 ).add_to(traffic_map)
 
 st_folium(
