@@ -25,7 +25,7 @@ st.set_page_config(
 def load_model():
 
     model_package = joblib.load(
-        "models/traffic_model.pkl"
+        "models/traffic_model_compressed.pkl""
     )
 
     model = model_package["model"]
